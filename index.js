@@ -2,7 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const fetch = require('node-fetch');
+
 
 
 const app = express();
@@ -46,11 +46,7 @@ app.post('/api/tiktok', async (req, res) => {
         res.status(500).json({ error: 'Server error. Try again.' });
     }
 });
-app.get('/ip', async (req, res) => {
-  const response = await fetch('https://api.ipify.org?format=json');
-  const data = await response.json();
-  res.json(data);
-});
+
 
 
 app.listen(5000, () => {
