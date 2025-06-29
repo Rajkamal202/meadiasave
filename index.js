@@ -44,6 +44,12 @@ app.post('/api/tiktok', async (req, res) => {
         res.status(500).json({ error: 'Server error. Try again.' });
     }
 });
+app.get('/ip', async (req, res) => {
+  const response = await fetch('https://api.ipify.org?format=json');
+  const data = await response.json();
+  res.json(data);
+});
+
 
 app.listen(5000, () => {
     console.log('TikTok API running at http://localhost:5000');
