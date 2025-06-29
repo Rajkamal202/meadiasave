@@ -22,11 +22,15 @@ app.post('/api/tiktok', async (req, res) => {
         const finalUrl = redirected?.headers?.location || url;
 
         // Get HTML from final page
-        const response = await axios.get(finalUrl, {
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Mobile; Android 12)',
-            },
-        });
+       const response = await axios.get(finalUrl, {
+        headers: {
+        'User-Agent': 'Mozilla/5.0 (Linux; Android 12)',
+        'Referer': 'https://www.tiktok.com/',
+        'Accept': '*/*',
+        'Origin': 'https://www.tiktok.com'
+        }
+     });
+
 
         const html = response.data;
 
